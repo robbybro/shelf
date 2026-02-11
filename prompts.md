@@ -1,9 +1,0 @@
-I want to build an app to convert my analog cookbooks to digital so I can search recipes and keep track of what I've cooked. The app will make it so I can point my phone at each page and scan the words. I'd like each scaan to generate a md file of the cookbook where the title, page number, ingredients, and any instructions / description. There are also sections of many cookbooks that are technique focused. Feel free to include these but the recipes are the most important.
-
-For the UI I'd like to implement a scan feature that turns the screen hamburger and splits it in half. On one half is the camera view which uses OCR or some similar technology to scan pages of the book as I flip through it. On the other half is the generated output. Use color to denote confidence level of the words scanned as we go - red highlight for low confidence (< 50%) yellow highlight for medium confidence ( 50-80%), nothing for high confidence. Allow the user to go back over sections or pages with low confidence scores.
-
-Allow the user to start and stop a scan. Allow the user to name scans. Assume that some scans will end up getting stopped in the middle so allow the user to resume them, letting them know which page number to resume from.
-
-Once a scan is stopped, allow the user to export the md file of the book.
-
-Next, let's discuss technology. I'd prefer this be in React Native. I'll be testing on an iOS simulator but porting to an Android phone. I'd also prefer to use Expo and set up continuous integration to my android phone to make testing and using the app easier. But I know EAS CLI has some limitations on technology and custom code so we need to make sure all this functionality is possible if we go that direction. I'm also not opposed to loading a web app into a mobile app, or using native android. Let me know what you think.

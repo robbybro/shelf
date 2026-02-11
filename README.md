@@ -21,12 +21,17 @@ See [SETUP.md](./SETUP.md) for detailed instructions.
 # Install dependencies (already done)
 npm install
 
+# IMPORTANT: Generate native projects first (required for local builds)
+npx expo prebuild --platform ios --clean
+
 # Build development client for iOS simulator
 eas build --profile development --platform ios --local
 
 # Start dev server
 npx expo start --dev-client
 ```
+
+**Note:** Local builds require running `npx expo prebuild` first to generate native iOS/Android projects and install CocoaPods/dependencies.
 
 ### For Android Testing
 

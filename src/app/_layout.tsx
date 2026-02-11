@@ -1,3 +1,6 @@
+// Polyfill for crypto.getRandomValues() needed by uuid package
+import 'react-native-get-random-values';
+
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

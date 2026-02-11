@@ -12,33 +12,9 @@ interface MarkdownPreviewProps {
 
 export function MarkdownPreview({ ocrResults, recipes, rawText }: MarkdownPreviewProps) {
   const textSegments = TextProcessor.createTextSegments(ocrResults);
-  const avgConfidence = TextProcessor.calculateAverageConfidence(ocrResults);
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      {/* Confidence indicator */}
-      <View style={styles.confidenceBar}>
-        <Text style={styles.confidenceLabel}>
-          Confidence: {(avgConfidence * 100).toFixed(0)}%
-        </Text>
-        <View style={styles.confidenceMeter}>
-          <View
-            style={[
-              styles.confidenceFill,
-              {
-                width: `${avgConfidence * 100}%`,
-                backgroundColor:
-                  avgConfidence > 0.8
-                    ? Colors.success
-                    : avgConfidence > 0.5
-                    ? Colors.warning
-                    : Colors.error,
-              },
-            ]}
-          />
-        </View>
-      </View>
-
       {/* Detected text with highlighting */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Detected Text</Text>
@@ -129,24 +105,6 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: Layout.spacingL,
-  },
-  confidenceBar: {
-    marginBottom: Layout.spacingL,
-  },
-  confidenceLabel: {
-    fontSize: Layout.fontSizeM,
-    fontWeight: '600',
-    color: Colors.text,
-    marginBottom: Layout.spacingS,
-  },
-  confidenceMeter: {
-    height: 8,
-    backgroundColor: Colors.backgroundSecondary,
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  confidenceFill: {
-    height: '100%',
   },
   section: {
     marginBottom: Layout.spacingXl,

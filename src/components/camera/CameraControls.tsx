@@ -2,41 +2,26 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Colors, Layout } from '../../constants';
 
 interface CameraControlsProps {
-  onCapture: () => void;
   onNextPage: () => void;
   isProcessing: boolean;
-  currentPage: number;
 }
 
 export function CameraControls({
-  onCapture,
   onNextPage,
   isProcessing,
-  currentPage,
 }: CameraControlsProps) {
   return (
     <View style={styles.container}>
-      <View style={styles.pageIndicator}>
-        <Text style={styles.pageText}>Page {currentPage}</Text>
-      </View>
-
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={[styles.captureButton, isProcessing && styles.captureButtonDisabled]}
-          onPress={onCapture}
-          disabled={isProcessing}
-        >
-          <View style={styles.captureButtonInner} />
-        </TouchableOpacity>
-      </View>
-
       <TouchableOpacity
         style={[styles.nextButton, isProcessing && styles.nextButtonDisabled]}
         onPress={onNextPage}
         disabled={isProcessing}
       >
-        <Text style={styles.nextButtonText}>Next Page →</Text>
+        <Text style={styles.nextButtonText}>Save Page & Continue →</Text>
       </TouchableOpacity>
+      <Text style={styles.helperText}>
+        Or just turn the page - it will auto-detect!
+      </Text>
     </View>
   );
 }
@@ -47,40 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.backgroundSecondary,
     borderTopWidth: 1,
     borderTopColor: Colors.border,
-  },
-  pageIndicator: {
     alignItems: 'center',
-    marginBottom: Layout.spacingM,
-  },
-  pageText: {
-    fontSize: Layout.fontSizeL,
-    fontWeight: '600',
-    color: Colors.text,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: Layout.spacingM,
-  },
-  captureButton: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 4,
-    borderColor: '#FFF',
-  },
-  captureButtonDisabled: {
-    opacity: 0.5,
-  },
-  captureButtonInner: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#FFF',
   },
   nextButton: {
     backgroundColor: Colors.secondary,
@@ -88,6 +40,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Layout.spacingXl,
     borderRadius: Layout.borderRadiusM,
     alignItems: 'center',
+    marginBottom: Layout.spacingS,
   },
   nextButtonDisabled: {
     opacity: 0.5,
@@ -96,5 +49,10 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: Layout.fontSizeL,
     fontWeight: '600',
+  },
+  helperText: {
+    fontSize: Layout.fontSizeS,
+    color: Colors.textSecondary,
+    textAlign: 'center',
   },
 });

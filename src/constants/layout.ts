@@ -1,7 +1,11 @@
 export const Layout = {
-  // Split screen ratios
-  cameraWidthRatio: 0.4,  // 40% for camera
-  previewWidthRatio: 0.6, // 60% for preview
+  // Split screen ratios (landscape - side by side)
+  cameraWidthRatio: 0.5,  // 50% for camera
+  previewWidthRatio: 0.5, // 50% for preview
+
+  // Split screen ratios (portrait - stacked)
+  cameraHeightRatio: 0.5,  // 50% for camera (top)
+  previewHeightRatio: 0.5, // 50% for preview (bottom)
 
   // Spacing
   spacingXs: 4,

@@ -91,6 +91,7 @@ eas update:list
 ### Setup Automatic Updates
 
 1. **Initial Build**: Build and install the preview APK once:
+
    ```bash
    eas build --profile preview --platform android
    ```
@@ -98,6 +99,7 @@ eas update:list
 2. **Make Changes**: Edit your TypeScript/JavaScript code
 
 3. **Push Updates**: Deploy updates without rebuilding:
+
    ```bash
    eas update --branch preview --message "Added new feature"
    ```
@@ -130,18 +132,21 @@ jobs:
 ## Build Profiles Explained
 
 ### Development Profile (`development`)
+
 - **Purpose**: Local development and testing
 - **iOS**: Builds for simulator
 - **Android**: Debug APK
 - **Features**: Hot reload, dev tools, debug mode
 
 ### Preview Profile (`preview`)
+
 - **Purpose**: Internal testing
 - **iOS**: Can run on real devices (requires provisioning)
 - **Android**: APK for direct installation
 - **Features**: Optimized but not production
 
 ### Production Profile (`production`)
+
 - **Purpose**: App store releases
 - **iOS**: Optimized for App Store
 - **Android**: AAB for Play Store
@@ -247,11 +252,13 @@ Access web dashboard: https://expo.dev/accounts/[your-username]/projects/shelf
 ## Cost & Limits
 
 **Free Tier:**
+
 - Build minutes: Limited (check https://expo.dev/pricing)
 - Updates: Unlimited
 - Bandwidth: Generous limits
 
 **Paid Plans:**
+
 - More build minutes
 - Priority build queue
 - Dedicated support
@@ -270,3 +277,10 @@ Access web dashboard: https://expo.dev/accounts/[your-username]/projects/shelf
 - EAS Docs: https://docs.expo.dev/build/introduction/
 - EAS Updates: https://docs.expo.dev/eas-update/introduction/
 - Expo Forums: https://forums.expo.dev/
+
+## Robby's workflow
+
+- `npx expo prebuild --platform android --clean`
+- `eas build --profile development --platform android --local`
+- `adb -s 48061FDAS004WJ install  build-1770845278745.apk`
+- `npx expo start`
